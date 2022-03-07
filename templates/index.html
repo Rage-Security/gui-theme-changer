@@ -1,0 +1,170 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+           
+            font-size: 23px;
+            background-color: #f0f0f0;
+
+        }
+
+        .button {
+            background-color: antiquewhite;
+            border: none;
+            color: white;
+            padding: 9px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .button2 {
+            background-color: #d65151;
+            border-radius: 50%;
+        }
+
+        .button3 {
+            background-color: #51b7d6;
+            border-radius: 50%;
+        }
+
+        .button4 {
+            background-color: #eb58e3;
+            border-radius: 50%;
+        }
+
+        .button5 {
+            background-color: #d69c51;
+            border-radius: 50%;
+        }
+
+        img {
+            padding: 0px;
+            width: 20px;
+        }
+
+        .bottom-left {
+            position: absolute;
+            top: 14px;
+            left: 13px;
+        }
+
+        .bottom-left1 {
+            position: absolute;
+            top: 14px;
+            left: 63px;
+        }
+
+        .accent {
+            position: absolute;
+            top: 236px;
+            left: 106px;
+        }
+
+        .accenttxt {
+            position: absolute;
+            top: 220px;
+            left: 7px;
+            letter-spacing: -1px;
+        }
+
+        .accentp{
+            font-family: 'Poppins', sans-serif;  
+            font-size: 8px;
+            position: relative;
+            color: #272727;
+            top: -11px;
+            left: 6px;
+            letter-spacing: .1px;
+        }
+
+        th,
+        td {
+            border-style: solid;
+
+            border: 1.9px solid #d65151;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type=text/javascript>
+            $(function() {
+              $('a#red').on('click', function(e) {
+                e.preventDefault()
+                $.getJSON('/red',
+                    function(data) {
+                  //do nothing
+                });
+                return false;
+              });
+            });
+
+            $(function() {
+              $('a#blue').on('click', function(e) {
+                e.preventDefault()
+                $.getJSON('/blue',
+                    function(data) {
+                  //do nothing
+                });
+                return false;
+              });
+            });
+        
+    </script>
+    <script>
+        function showDiv() {
+            document.getElementById('welcomeDiv').style.display = "block";
+            document.getElementById('welcomeDiv1').style.display = "none";
+        }
+        function showDiv1() {
+            document.getElementById('welcomeDiv').style.display = "none";
+            document.getElementById('welcomeDiv1').style.display = "block";
+
+        }
+
+    </script>
+
+    <div>
+        <p class="accenttxt">Accent :</p>
+        <tabletmp class="accent">
+            <tr>
+                <th>
+                    <div id="welcomeDiv" style="display:{{red}};" class="answer_list">
+                        <img src="{{ url_for('static', filename='check-symbol.png')}}" alt="" class="bottom-left">
+                    </div>
+                    <div id="welcomeDiv1" style="display:{{blue}};" class="answer_list">
+                        <img src="{{ url_for('static', filename='check-symbol.png')}}" alt="" class="bottom-left1">
+                    </div>
+
+
+                    <a href="#" id="red"><input type="button" class="button button2" name="answer" value=""
+                            onclick="showDiv()" /></a>
+                    <a href="#" id="blue"><input type="button" class="button button3" name="answer" value=""
+                            onclick="showDiv1()" /></a>
+                    <p class="accentp">User across the system by default. Apps can always use their own accent color</p>
+
+                </th>
+            </tr>
+            </table>
+    </div>
+
+
+
+</body>
+
+</html>
